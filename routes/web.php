@@ -15,6 +15,6 @@ use App\Http\Controllers\Front\Homepage;
 |
 */
 
-Route::get('/web','App\Http\Controllers\Front\Homepage@index')->name('homepage');
+Route::get('/','App\Http\Controllers\Front\Homepage@index')->name('homepage');
 
-Route::get('/blog/{slug}','App\Http\Controllers\Front\Homepage@single')->name('single');
+Route::get('/{category}/{slug}','App\Http\Controllers\Front\Homepage@single')->name('single');

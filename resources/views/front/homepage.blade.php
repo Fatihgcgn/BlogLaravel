@@ -8,12 +8,14 @@
 
                     <div class="post-preview">
 
-                        <a href="{{route('single',$article->slug)}}">
+                        <a href="{{route('single',[$article->getCategory->slug,$article->slug])}}">
                             <h2 class="post-title">{{$article->title}}</h2>
 
                             <img src="{{$article->image}}" />
 
-                            <h3 class="post-subtitle">{{str_limit($article->content,75)}}</h3>
+                            <h3 class="post-subtitle">
+                                {!!str_limit($article->content,80)!!}
+                            </h3>
                         </a>
 
                         <p class="post-meta"> Kategori :
