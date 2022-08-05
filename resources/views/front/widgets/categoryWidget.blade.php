@@ -7,7 +7,8 @@
         <div class="list-group">
             @foreach ($categories as $category)
             <li class="list-group-item">
-                <a href="#">{{$category->name}} </a> <span class="badge bg-primary float-end">{{$category->articleCount()}}</span>
+                <a href="{{route('category',$category->slug)}}">{{$category->name}} </a>
+                <span class="badge bg-primary float-end">{{$category->articleCount()}}</span>
 
                 </li>
             @endforeach
