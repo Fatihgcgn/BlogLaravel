@@ -13,7 +13,8 @@ class Homepage extends Controller
 {
     public function index()
     {
-        $data['articles']=Article::OrderBy('created_at', 'DESC')->get();
+        $data['articles']=Article::OrderBy('created_at', 'DESC')->paginate(2);
+        $data['articles']->withPath(url('sayfa'));
         $data['categories']=Category::inRandomOrder()->get();
         return view('front.homepage', $data);
     }
@@ -35,7 +36,7 @@ class Homepage extends Controller
         $category=Category::whereSlug($slug)->first() ?? abort(403, 'Böyle bir kategori bulunamadi');
         $data['category']=$category;
         $data['categories']=Category::inRandomOrder()->get();
-        $data['articles']=Article::where('category_id',$category->id)->get();
+        $data['articles']=Article::where('category_id',$category->id)->paginate(1);
         return view('front.category', $data);
     }
 }

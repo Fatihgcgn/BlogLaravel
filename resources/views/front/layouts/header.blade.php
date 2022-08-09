@@ -41,7 +41,7 @@
                     <div class="col-md-12 col-xl-7">
                         <div class="site-heading">
                             <h2>@yield('title')</h2>
-                            <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                            <span class="subheading"></span>
                         </div>
                     </div>
                 </div>

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Front\Homepage;
+use App\Http\Controllers\Front;
 
 
 /*
@@ -17,7 +18,8 @@ use App\Http\Controllers\Front\Homepage;
 
 Route::get('/','App\Http\Controllers\Front\Homepage@index')->name('homepage');
 
+Route::get('sayfa','App\Http\Controllers\Front\Homepage@index');
+
 Route::get('/kategori/{category}','App\Http\Controllers\Front\Homepage@category')->name('category');
 
 Route::get('/{category}/{slug}','App\Http\Controllers\Front\Homepage@single')->name('single');
-
