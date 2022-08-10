@@ -23,3 +23,6 @@ Route::get('sayfa','App\Http\Controllers\Front\Homepage@index');
 Route::get('/kategori/{category}','App\Http\Controllers\Front\Homepage@category')->name('category');
 
 Route::get('/{category}/{slug}','App\Http\Controllers\Front\Homepage@single')->name('single');
+
+Route::get('{sayfa}','App\Http\Controllers\Front\Homepage@page')->name('page');
+
