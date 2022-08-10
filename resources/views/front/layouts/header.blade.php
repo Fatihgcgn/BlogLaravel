@@ -25,11 +25,16 @@
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
+
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{route('homepage')}}">Anasayfam</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">Hakkımda</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="post.html">Postlarım</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.html">İletişim</a></li>
+
+                        @foreach ($pages as $page )
+                        <li class="nav-item">
+                            <a class="nav-link px-lg-3 py-3 py-lg-4" href="#">{{$page->title}}</a>
+                        </li>
+                        @endforeach
+
                     </ul>
                 </div>
             </div>
