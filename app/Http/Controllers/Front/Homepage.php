@@ -22,7 +22,6 @@ class Homepage extends Controller
     public function index()
     {
 
-
         $data['articles'] = Article::OrderBy('created_at', 'DESC')->paginate(2);
         $data['articles']->withPath(url('sayfa'));
         return view('front.homepage', $data);
@@ -53,5 +52,13 @@ class Homepage extends Controller
         $page = Page::whereSlug($slug)->first() ?? abort(403, 'Böyle bir kategori bulunamadi');
         $data['page'] = $page;
         return view('front.page', $data);
+    }
+
+    public function contact(){
+        return view('front.contact');
+    }
+
+    public function contactpost(Request $request){
+        print_r($request->post());
     }
 }
