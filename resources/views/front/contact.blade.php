@@ -5,6 +5,22 @@
                 @section('content')
 
                     <div class="col-md-8">
+                        @if (session('success'))
+                    <div class="alert alert-success">
+                        {{session('success')}}
+                    </div>
+                    @endif
+
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{$error}}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
+
                         <p>Bizimle iletişime geçmek ister misiniz?</p>
 
                         <form method="post" action="{{ route('contact.post') }}">
@@ -12,25 +28,24 @@
 
                             <div class="control-group">
                                 <label for="name">Ad Soyad</label>
-                                <input class="form-control" name="name" type="text" placeholder="Enter your name..." />
+                                <input class="form-control" name="name" value="{{old('name')}}" type="text" placeholder="Enter your name..." />
                             </div>
                             <div class="control-group">
                                 <label for="email">Email Adresi</label>
-                                <input class="form-control" name="email" type="email"
-                                    placeholder="Email adresiniz..." />
+                                <input class="form-control" name="email" value="{{old('email')}}" type="email" placeholder="Email adresiniz..." />
                             </div>
                             <div class="control-group">
                                 <label for="topic">Konu</label>
-                                <select class="form-control" name="topic">
-                                    <option value="Bilgi">Bilgi</option>
-                                    <option value="Destek">Destek</option>
-                                    <option value="Genel">Genel</option>
+                                <select class="form-control" name="topic" value="{{old('topic')}}">
+                                    <option @if(old('topic')=="Bilgi") selected @endif>Bilgi</option>
+                                    <option @if(old('topic')=="Destek") selected @endif>Destek</option>
+                                    <option @if(old('topic')=="Genel") selected @endif>Genel</option>
                                 </select>
                             </div>
 
                             <div class="control-group">
                                 <label for="message">Mesajınız</label>
-                                <textarea class="form-control" placeholder="Mesajınız" name="message" style="height: 12rem"></textarea>
+                                <textarea class="form-control" placeholder="Mesajınız" name="message" style="height: 12rem">{{old('message')}}</textarea>
                             </div>
 
                             <div class="control-group">

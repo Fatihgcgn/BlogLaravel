@@ -5,7 +5,7 @@
     <a href="{{route('single',[$article->getCategory->slug,$article->slug])}}">
         <h2 class="post-title">{{$article->title}}</h2>
 
-        <img src="{{$article->image}}" />
+        <img width="620" height="350" src="{{$article->image}}" />
 
         <h3 class="post-subtitle">
             {!!str_limit($article->content,80)!!}

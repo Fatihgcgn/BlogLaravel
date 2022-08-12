@@ -14,6 +14,10 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{{asset('front/dist/css/styles.css')}}" rel="stylesheet" />
+        <style> .lazyloaded{
+            width: 620px;
+            height: 350px;
+        } </style>
     </head>
     <body>
         <!-- Navigation-->
@@ -35,7 +39,7 @@
                         </li>
                         @endforeach
                         <li class="nav-item">
-                            <a class="nav-link px-lg-3 py-3 py-lg-4" href="contract.html">İletişim</a>
+                            <a class="nav-link px-lg-3 py-3 py-lg-4" href="{{route('contact')}}">İletişim</a>
                         </li>
 
                     </ul>
